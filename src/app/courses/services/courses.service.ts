@@ -10,7 +10,8 @@ export class CoursesService {
 
   private readonly API = 'api/courses';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+  ) { }
 
   list() {
     return this.httpClient.get<Course[]>(this.API)
@@ -18,5 +19,9 @@ export class CoursesService {
         first(),
         delay(200),
       );
+  }
+
+  save(course: Course) {
+    return this.httpClient.post<Course>(this.API, course);
   }
 }
