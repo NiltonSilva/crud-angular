@@ -21,7 +21,7 @@ export class CoursesService {
       );
   }
 
-  save(course: Course) {
+  save(course: Partial<Course>) { /* Partial indica que posso, la no arquivo ts, receber um course sem o ID, recebe somente o name e category */
     return this.httpClient.post<Course>(this.API, course);
   }
 }
